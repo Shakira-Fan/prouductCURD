@@ -1,0 +1,511 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ProductCURD",
+    "description": "ExpressCURD API文件",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "headers",
+      "name": "authorization",
+      "description": "請加上API Token"
+    }
+  },
+  "paths": {
+    "/product/": {
+      "get": {
+        "tags": [
+          "Product-產品"
+        ],
+        "description": "取得全部產品 API",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功之後回傳格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "_id": {
+                        "type": "string",
+                        "example": "645324ace96bbcdf2d8deb81"
+                      },
+                      "id": {
+                        "type": "number",
+                        "example": 22222
+                      },
+                      "brand": {
+                        "type": "string",
+                        "example": "GUGGI"
+                      },
+                      "category": {
+                        "type": "string",
+                        "example": "bag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Lily"
+                      },
+                      "__v": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product-產品"
+        ],
+        "description": "新增產品 API",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "資料格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Lily"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 33333
+                },
+                "category": {
+                  "type": "string",
+                  "example": "shirt"
+                },
+                "brand": {
+                  "type": "string",
+                  "example": "One Boy"
+                }
+              },
+              "required": [
+                "name",
+                "id",
+                "category",
+                "brand"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "成功之後回傳格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "_id": {
+                        "type": "string",
+                        "example": "645324ace96bbcdf2d8deb81"
+                      },
+                      "id": {
+                        "type": "number",
+                        "example": 22222
+                      },
+                      "brand": {
+                        "type": "string",
+                        "example": "GUGGI"
+                      },
+                      "category": {
+                        "type": "string",
+                        "example": "bag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Lily"
+                      },
+                      "__v": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/product/{id}": {
+      "get": {
+        "tags": [
+          "Product-產品"
+        ],
+        "description": "取得單一產品 API",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功之後回傳格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "_id": {
+                        "type": "string",
+                        "example": "645324ace96bbcdf2d8deb81"
+                      },
+                      "id": {
+                        "type": "number",
+                        "example": 22222
+                      },
+                      "brand": {
+                        "type": "string",
+                        "example": "GUGGI"
+                      },
+                      "category": {
+                        "type": "string",
+                        "example": "bag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Lily"
+                      },
+                      "__v": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product-產品"
+        ],
+        "description": "更改單一產品 API",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "資料格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "price": {
+                  "type": "number",
+                  "example": 200
+                },
+                "quantity": {
+                  "type": "number",
+                  "example": 300
+                },
+                "brand": {
+                  "type": "string",
+                  "example": "nike"
+                },
+                "category": {
+                  "type": "string",
+                  "example": "food"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功之後回傳格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "_id": {
+                        "type": "string",
+                        "example": "645324ace96bbcdf2d8deb81"
+                      },
+                      "id": {
+                        "type": "number",
+                        "example": 22222
+                      },
+                      "brand": {
+                        "type": "string",
+                        "example": "GUGGI"
+                      },
+                      "category": {
+                        "type": "string",
+                        "example": "bag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Lily"
+                      },
+                      "__v": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Product-產品"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/sample/": {
+      "get": {
+        "tags": [
+          "CRUD-範例"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CRUD-範例"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/sample/{itemID}": {
+      "get": {
+        "tags": [
+          "CRUD-範例"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CRUD-範例"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CRUD-範例"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
